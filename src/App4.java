@@ -12,8 +12,8 @@ public class App4 {
             System.out.println("Qual o peso da pessoa " + i + "?");
             pessoas[i].peso = prompt.nextDouble();
         }
-        for (int i = 3; i > 0; i--) {
-            System.out.println("O imc da pessoa " + i + " é igual a " + pessoas[i].calcularImc());
+        for (int i = 2; i >= 0; i--) {
+            System.out.printf("O imc da pessoa " + i + " é igual a " + pessoas[i].calcularImc());
         }
     }
 }
