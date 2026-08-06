@@ -1,3 +1,4 @@
+package Lista1.Ex1;
 public class Pessoa {
     double altura, peso;
     double calcularImc(){

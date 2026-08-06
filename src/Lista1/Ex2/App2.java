@@ -1,4 +1,7 @@
+package Lista1.Ex2;
 import java.util.Scanner;
+
+import Lista1.Ex2.Pessoa;
 
 public class App2 {
     public static void main(String[] args) {
