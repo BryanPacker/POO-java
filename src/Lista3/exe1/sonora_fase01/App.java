@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class App {
     Scanner prompt = new Scanner(System.in);
-    int escolhaMenu = 999;
+    int escolhaMenu = 9;
+    Plataforma p1 = new Plataforma();
+    Playlist ultimPlaylist;
 
     public void Menu(){
-        
         do {
-
             System.out.println("------------ Sonora ------------");    
             System.out.println("1 - Cadastrar música manualmente");    
             System.out.println("2 - Cadastrar usuário");    
@@ -21,7 +21,7 @@ public class App {
             System.out.println("0 - Sair");    
             System.out.println("--------------------------------");
 
-            if (prompt.hasNextInt(escolhaMenu)) {                
+            if (prompt.hasNextInt()) {                
                 
                 escolhaMenu = prompt.nextInt();
 
@@ -30,16 +30,16 @@ public class App {
                         System.out.println("Bye bye!");
                         break;
                     case 1:
-                        
-                        break;
+                        cadastroMusica();
+                    break;
                     case 2:
-                        
+                        cadastroUsuario();                        
                         break;
                     case 3:
-                        
+                        criarPlaylist();                
                         break;
                     case 4:
-                        
+
                         break;
                     case 5:
                         
@@ -56,13 +56,136 @@ public class App {
                         break;
                 }
             }
-
             else{
+                prompt.next();
                 System.out.println("Digite um *Número*");
             }
         } while (escolhaMenu != 0);
     }
+
+    public void cadastroMusica(){
+        
+        prompt.nextLine();
+        
+        System.out.println("Qual o nome do artista");
+        String nomeArtista = prompt.nextLine();
+        System.out.println("Qual o nome da Música?");
+        String nomeMusica = prompt.nextLine();
+        System.out.println("Qual a duração total da Música(segundos)?");
+        int duracaoSegundos = 0;
+        
+        do {
+            if (prompt.hasNextInt()) {  
+                
+                duracaoSegundos = prompt.nextInt();                
+        
+                if (duracaoSegundos < 1) {
+                System.out.println("Digite um número maior que 0");
+                }
+
+            }
+            else{
+                prompt.next();
+                System.out.println("Digite um número");
+            }
+        } while (duracaoSegundos < 1);
+        
+        Musica musicaCadastrada = new Musica(nomeMusica, nomeArtista, duracaoSegundos);
+        boolean cadastrou = p1.cadastrarMusica(musicaCadastrada);
+        
+        if (cadastrou == true) {
+            System.out.println("Música cadastrada com sucesso");
+        }
+        else{
+            System.out.println("Cadastro inválido");
+        }
+    }
+
+    public void cadastroUsuario(){
+
+        prompt.nextLine();
+        
+        System.out.println("Qual o nome do usuário");
+        String nomeUsuario = prompt.nextLine();
+        System.out.println("Qual o email do usuário?");
+        String emailUsuario;
+        do {
+            emailUsuario = prompt.nextLine();
+            if (!emailUsuario.contains("@")) {
+                System.out.println("Digite um email válido");
+            }
+        } while (!emailUsuario.contains("@"));
+        Usuario usuarioCadastrado = new Usuario(nomeUsuario, emailUsuario);
+        boolean cadastrou = p1.cadastrarUsuario(usuarioCadastrado);
+
+        if (cadastrou == true) {
+            System.out.println("Usuário cadastrado com sucesso");
+        }
+        else{
+            System.out.println("Cadastro inválido");
+        }
+    }
+
+    public void criarPlaylist(){
+        prompt.nextLine();
+        System.out.println("Qual o nome da playlist?");
+        String nomePlaylist = prompt.nextLine();
+        System.out.println("Qual usuário será dono da playlist?");
+        Usuario usuarioValido;
+        String usuarioPlaylist;
+        do {
+            usuarioPlaylist = prompt.nextLine();
+            usuarioValido = p1.buscarUsuario(usuarioPlaylist);
+
+            if (usuarioValido == null) {
+                System.out.println("Usuário inválido");
+        }    
+        } while (usuarioValido == null);
+        ultimPlaylist = new Playlist(nomePlaylist, usuarioValido);
+        System.out.println("Cadastro concluido, deseja incluir novas músicas?");
+        int opcao = 0;
+        do {
+            System.out.println("1 - Sim");
+            System.out.println("2 - Não");
+            if (prompt.hasNextInt()) {
+                opcao = prompt.nextInt();
+                prompt.nextLine();
+                switch (opcao) {
+                    case 1:
+                        Musica valida;
+                        System.out.println("Que música você gostaria de adicionar? Busca por titulo");
+                        do {
+                            String adicionarMusica = prompt.nextLine();
+                            valida = p1.buscarMusica(adicionarMusica);
+                            if (valida != null) {
+                                boolean adicionou = ultimPlaylist.adicionar(valida);
+                                if (adicionou) {
+                                    System.out.println("Música adicionada à playlist");
+                                }
+                                else{
+                                    System.out.println("Não foi possível adicionar (playlist cheia)");
+                                }
+                            }
+                            else{
+                                System.out.println("Música inválida");
+                            }
+                        } while (valida == null);
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        System.out.println("Digite 1 ou 2");
+                        break;
+                }
+            }
+            else{
+                prompt.nextLine();
+                System.out.println("Digite um número!");
+            }
+        } while (opcao != 2);
+    }
     public static void main(String[] args) {
-        new App() = new App();
+        App exe = new App();
+        exe.Menu();  
     }
 }

@@ -1,55 +1,20 @@
 package Lista3.exe1.sonora_fase01;
 
 public class Musica {
-    private static int id;
+    private static int ultimoID;
+    private final int id;
     private int duracaoSegundos;
     private int reproducoes;
     private String artista;
     private String titulo;
-
+    
+    // Construtor
     public Musica(String titulo, String artista, int duracaoSegundos){
+        ultimoID++;
         this.titulo = titulo;
         this.artista = artista;
         this.duracaoSegundos = duracaoSegundos;
-        this.id++;
-    }
-
-    public void reproduzir(){
-        reproducoes++;
-    }
-
-    public String getDuracaoFormatada(){
-    
-        String duracaoFormatada;
-        
-        if (duracaoSegundos > 60) {
-            
-            int duracaoMinutos = duracaoSegundos / 60; 
-            duracaoSegundos = duracaoSegundos % 60;
-        
-            if (duracaoMinutos < 10 && duracaoSegundos < 10 ) {
-                duracaoFormatada = "0"+duracaoMinutos+":"+"0"+duracaoSegundos;
-                return duracaoFormatada;
-            }
-            else if (duracaoMinutos < 10 && duracaoSegundos > 10) {
-                duracaoFormatada = "0"+duracaoMinutos+":"+duracaoSegundos;                
-                return duracaoFormatada;
-            }
-            else if (duracaoMinutos > 10 && duracaoSegundos < 10) {
-                duracaoFormatada = duracaoMinutos+":"+"0"+duracaoSegundos;                
-                return duracaoFormatada;
-            }
-            else{
-                duracaoFormatada = duracaoMinutos+":"+duracaoSegundos;                
-                return duracaoFormatada;
-            }
-
-        }
-
-        else {
-            duracaoFormatada = "00:"+duracaoSegundos;
-            return duracaoFormatada;
-        }
+        this.id = ultimoID;
     }
 
     // Retorna ID
@@ -93,4 +58,42 @@ public class Musica {
     public String getTitulo() {
         return titulo;
     }    
+    
+    public void reproduzir(){
+        reproducoes++;
+    }
+
+    public String getDuracaoFormatada(){
+    
+        String duracaoFormatada;
+        
+        if (duracaoSegundos > 60) {
+            
+            int duracaoMinutos = duracaoSegundos / 60; 
+            int segundos = duracaoSegundos % 60;
+        
+            if (duracaoMinutos < 10 && segundos < 10 ) {
+                duracaoFormatada = "0"+duracaoMinutos+":"+"0"+segundos;
+                return duracaoFormatada;
+            }
+            else if (duracaoMinutos < 10 && segundos > 10) {
+                duracaoFormatada = "0"+duracaoMinutos+":"+segundos;                
+                return duracaoFormatada;
+            }
+            else if (duracaoMinutos > 10 && segundos < 10) {
+                duracaoFormatada = duracaoMinutos+":"+"0"+segundos;                
+                return duracaoFormatada;
+            }
+            else{
+                duracaoFormatada = duracaoMinutos+":"+segundos;                
+                return duracaoFormatada;
+            }
+
+        }
+
+        else {
+            duracaoFormatada = "00:"+duracaoSegundos;
+            return duracaoFormatada;
+        }
+    }
 }

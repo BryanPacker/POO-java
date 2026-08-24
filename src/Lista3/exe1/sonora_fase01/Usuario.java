@@ -1,9 +1,17 @@
 package Lista3.exe1.sonora_fase01;
 
 public class Usuario {
-    int id;
+    private static int ultimoID;
+    private final int id;
     private String nome;
     private String email;
+
+    public Usuario(String nome, String email){
+        ultimoID++;
+        this.nome = nome;
+        this.email = email;
+        this.id = ultimoID;
+    }
 
     public int getId() {
         return id;
@@ -17,8 +25,11 @@ public class Usuario {
         return email;
     }
 
-    public Usuario(String nome, String email){
-
+    public void setNome(String nome){
+        this.nome = nome;
     }
-    
+
+    public void setEmail(String email){
+        this.email = email;
+    }
 }
