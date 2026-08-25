@@ -39,16 +39,16 @@ public class App {
                         criarPlaylist();                
                         break;
                     case 4:
-
+                        buscarMusicaPorId();                        
                         break;
                     case 5:
-                        
+                        buscarMusicaPorTitulo();
                         break;
                     case 6:
-                        
+                        reproduzirMusica();
                         break;
                     case 7:
-                        
+                        mostrarAcervo();
                         break;
 
                     default:
@@ -161,6 +161,7 @@ public class App {
                                 boolean adicionou = ultimPlaylist.adicionar(valida);
                                 if (adicionou) {
                                     System.out.println("Música adicionada à playlist");
+                                    System.out.println("Adicionar uma nova música?");
                                 }
                                 else{
                                     System.out.println("Não foi possível adicionar (playlist cheia)");
@@ -183,6 +184,80 @@ public class App {
                 System.out.println("Digite um número!");
             }
         } while (opcao != 2);
+    }
+
+    public void buscarMusicaPorId(){
+        System.out.println("Qual o id da música que você deseja buscar?");
+        int idMusica;
+        Musica valido;
+        do {
+            if (prompt.hasNextInt()) {
+                idMusica =  prompt.nextInt();        
+                valido = p1.buscarMusicaPorId(idMusica);
+                if (valido == null) {
+                    System.out.println("Id inválido");
+                }
+                else{
+                    System.out.println("Música - " + valido.getTitulo());
+                    System.out.println("Artista - " + valido.getArtista());
+                    System.out.println("Reproduções - " + valido.getReproducoes());
+                    System.out.println("Duração - " + valido.getDuracaoFormatada());
+                    System.out.println("Duração segundos - " + valido.getDuracaoSegundos());
+                    System.out.println("Id música - " + valido.getId());
+                }
+            }
+            else{
+                throw new IllegalArgumentException("Digite somente números");
+            }
+        } while (valido == null);
+    }
+
+    public void buscarMusicaPorTitulo(){
+        prompt.nextLine();
+        System.out.println("Qual o título da música que você deseja buscar?");
+        String tituloMusica;
+        Musica valido;
+        do {
+            tituloMusica =  prompt.nextLine();        
+            valido = p1.buscarMusica(tituloMusica);
+            if (valido == null) {
+                System.out.println("Id inválido");
+            }
+            
+            else{
+                System.out.println("Música - " + valido.getTitulo());
+                System.out.println("Artista - " + valido.getArtista());
+                System.out.println("Reproduções - " + valido.getReproducoes());
+                System.out.println("Duração - " + valido.getDuracaoFormatada());
+                System.out.println("Duração segundos - " + valido.getDuracaoSegundos());
+                System.out.println("Id música - " + valido.getId());
+                }    
+        } while (valido == null);
+    }
+    
+    public void reproduzirMusica(){
+        prompt.nextLine();
+        System.out.println("Qual o título da música que você deseja reproduzir?");
+        String tituloMusica;
+        Musica valido;
+        do {
+            tituloMusica =  prompt.nextLine();        
+            valido = p1.buscarMusica(tituloMusica);
+            if (valido == null) {
+                System.out.println("Id inválido");
+            }
+            else{
+                valido.reproduzir();
+                System.out.println("Reproduzindo!");
+            }            
+        } while (valido == null);
+    }
+
+    public void mostrarAcervo(){
+        for (int i = 0; i < p1.getTotalMusicas(); i++) {
+            Musica musicas = p1.buscarMusicaPorId(i + 1);
+            System.out.println((i+1) + " - " + musicas.getTitulo());
+        }
     }
     public static void main(String[] args) {
         App exe = new App();
