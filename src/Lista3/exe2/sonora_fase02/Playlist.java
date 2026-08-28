@@ -1,4 +1,4 @@
-package Lista3.exe2.sonora_fase01;
+package Lista3.exe2.sonora_fase02;
 
 public class Playlist {
     private Musica[] musicas = new Musica[100];
@@ -7,6 +7,10 @@ public class Playlist {
     private int quantidade;
 
     public Playlist(String nome, Usuario dono){
+        
+        if ( (nome == null || nome.isBlank()) || dono == null) {
+            throw new IllegalArgumentException("Dados inválidos, assegure-se de não passar dados nulos");
+        }
         this.nome = nome;
         this.dono = dono;
 
@@ -23,28 +27,29 @@ public class Playlist {
     }
     
     public boolean adicionar(Musica musica){
-        if (musica != null && quantidade < musicas.length) {
+        if (musica == null) {
+            throw new IllegalArgumentException("Música não pode ser um objeto nulo");
+        }
+        if (quantidade < musicas.length) {
             musicas[quantidade] = musica;
             quantidade++;
             return true;
         }
-        else{
-            return false;
+
+        return false;
         }
-    }
     
     public Musica getNaPosicao(int indice){
-        if (indice >= 0 && indice < quantidade) {
-            return musicas[indice];  
+        if (indice < 0 || indice > quantidade) {
+            throw new IndexOutOfBoundsException("Escolha um número de intervalo válido, maior que 0 e dentro da quantidade de músicas adicionadas");
         }   
-        else{
-            return null;
-        }
+        
+        return musicas[indice];  
     }
 
     public boolean removerNaPosicao(int indice) {
         if (indice < 0 || indice >= quantidade) {
-            return false;
+            throw new IndexOutOfBoundsException("Escolha um número de intervalo válido, maior que 0 e dentro da quantidade de músicas adicionadas");
         }
         for (int i = indice; i < quantidade - 1; i++) {
             musicas[i] = musicas[i + 1];

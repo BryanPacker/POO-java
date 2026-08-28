@@ -1,4 +1,4 @@
-package Lista3.exe2.sonora_fase01;
+package Lista3.exe2.sonora_fase02;
 
 import java.util.Scanner;
 
@@ -9,37 +9,36 @@ public class App {
     Playlist ultimPlaylist;
 
     public void Menu(){
-        do {
-            System.out.println("------------ Sonora ------------");    
-            System.out.println("1 - Cadastrar música manualmente");    
-            System.out.println("2 - Cadastrar usuário");    
-            System.out.println("3 - Criar playlist e adicionar músicas");    
-            System.out.println("4 - Buscar música por id");    
-            System.out.println("5 - Buscar música por título");    
-            System.out.println("6 - Reproduzir uma música");    
-            System.out.println("7 - Listar acervo");    
-            System.out.println("0 - Sair");    
-            System.out.println("--------------------------------");
-
-            if (prompt.hasNextInt()) {                
+        while (true) {
+            try {
+                System.out.println("------------ Sonora ------------");    
+                System.out.println("1 - Cadastrar música manualmente");    
+                System.out.println("2 - Cadastrar usuário");    
+                System.out.println("3 - Criar playlist e adicionar músicas");    
+                System.out.println("4 - Buscar música por id");    
+                System.out.println("5 - Buscar música por título");    
+                System.out.println("6 - Reproduzir uma música");    
+                System.out.println("7 - Listar acervo");    
+                System.out.println("0 - Sair");    
+                System.out.println("--------------------------------");               
                 
-                escolhaMenu = prompt.nextInt();
-
+                escolhaMenu = Integer.parseInt(prompt.nextLine());
+                
                 switch (escolhaMenu) {
                     case 0:
                         System.out.println("Bye bye!");
-                        break;
+                        return;
                     case 1:
                         cadastroMusica();
-                    break;
+                        break;
                     case 2:
-                        cadastroUsuario();                        
+                        cadastroUsuario();
                         break;
                     case 3:
-                        criarPlaylist();                
+                        criarPlaylist();
                         break;
                     case 4:
-                        buscarMusicaPorId();                        
+                        buscarMusicaPorId();
                         break;
                     case 5:
                         buscarMusicaPorTitulo();
@@ -50,18 +49,16 @@ public class App {
                     case 7:
                         mostrarAcervo();
                         break;
-
                     default:
                         System.out.println("Digite um número válido");
                         break;
+            }
+
+                } catch (NumberFormatException error) {
+                    System.out.println("Valor inválido. Digite um número");
                 }
             }
-            else{
-                prompt.next();
-                System.out.println("Digite um *Número*");
-            }
-        } while (escolhaMenu != 0);
-    }
+        }
 
     public void cadastroMusica(){
         
@@ -75,19 +72,17 @@ public class App {
         int duracaoSegundos = 0;
         
         do {
-            if (prompt.hasNextInt()) {  
-                
-                duracaoSegundos = prompt.nextInt();                
+            try {
+                duracaoSegundos = Integer.parseInt(prompt.nextLine());                
         
                 if (duracaoSegundos < 1) {
                 System.out.println("Digite um número maior que 0");
-                }
-
-            }
-            else{
+                }    
+            } catch (IllegalArgumentException error) {
+                System.out.println("Digite um número!");
+            }            
                 prompt.next();
                 System.out.println("Digite um número");
-            }
         } while (duracaoSegundos < 1);
         
         Musica musicaCadastrada = new Musica(nomeMusica, nomeArtista, duracaoSegundos);

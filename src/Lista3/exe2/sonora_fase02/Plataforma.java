@@ -1,4 +1,4 @@
-package Lista3.exe2.sonora_fase01;
+package Lista3.exe2.sonora_fase02;
 
 public class Plataforma {
     Musica[] musicas = new Musica[500];
