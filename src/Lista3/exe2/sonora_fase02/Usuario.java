@@ -10,10 +10,10 @@ public class Usuario {
         ultimoID++;
 
         if (nome.isBlank() || nome == null) {
-            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caracterie válido")
+            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caracterie válido");
         }
-        if (email.isBlank() || email == null) {
-            throw new IllegalArgumentException("Email precisa conter ao menos 1 caracterie válido")
+        if (email.isBlank() || email == null || !email.contains("@")) {
+            throw new IllegalArgumentException("Email precisa conter ao menos 1 caracterie válido e um @");
         }
 
         this.nome = nome;
@@ -35,7 +35,7 @@ public class Usuario {
 
     public void setNome(String nome){
         if (nome.isBlank() || nome == null) {
-            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caracterie válido")
+            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caracterie válido");
         }
         
         this.nome = nome;
@@ -43,7 +43,7 @@ public class Usuario {
 
     public void setEmail(String email){
         if (email.isBlank() || email == null) {
-            throw new IllegalArgumentException("Email precisa conter ao menos 1 caracterie válido")
+            throw new IllegalArgumentException("Email precisa conter ao menos 1 caracterie válido");
         }
 
         this.email = email;

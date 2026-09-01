@@ -61,150 +61,137 @@ public class App {
         }
 
     public void cadastroMusica(){
-        
         prompt.nextLine();
-        
-        System.out.println("Qual o nome do artista");
-        String nomeArtista = prompt.nextLine();
-        System.out.println("Qual o nome da Música?");
-        String nomeMusica = prompt.nextLine();
-        System.out.println("Qual a duração total da Música(segundos)?");
-        int duracaoSegundos = 0;
-        
-        do {
-            try {
-                duracaoSegundos = Integer.parseInt(prompt.nextLine());                
-        
-                if (duracaoSegundos < 1) {
-                System.out.println("Digite um número maior que 0");
-                }    
-            } catch (IllegalArgumentException error) {
-                System.out.println("Digite um número!");
-            }            
+        boolean cadastrou = false;
+        while (!cadastrou) {
+            try { 
+                System.out.println("Qual o nome do artista");
+                String nomeArtista = prompt.nextLine();
+                System.out.println("Qual o nome da Música?");
+                String nomeMusica = prompt.nextLine();
+                System.out.println("Qual a duração total da Música(segundos)?");
+                int duracaoSegundos = Integer.parseInt(prompt.nextLine());                
+                Musica musicaCadastrada = new Musica(nomeMusica, nomeArtista, duracaoSegundos);
+                cadastrou = p1.cadastrarMusica(musicaCadastrada);
+                } catch (IllegalArgumentException error) {
+                    System.out.println("Informações inválidas");
+                }            
                 prompt.next();
-                System.out.println("Digite um número");
-        } while (duracaoSegundos < 1);
-        
-        Musica musicaCadastrada = new Musica(nomeMusica, nomeArtista, duracaoSegundos);
-        boolean cadastrou = p1.cadastrarMusica(musicaCadastrada);
-        
-        if (cadastrou == true) {
-            System.out.println("Música cadastrada com sucesso");
-        }
-        else{
-            System.out.println("Cadastro inválido");
+                if (cadastrou == true) {
+                    System.out.println("Música cadastrada com sucesso");
+                }
+                else{
+                    System.out.println("Cadastro inválido");
+                }
         }
     }
 
     public void cadastroUsuario(){
 
         prompt.nextLine();
-        
-        System.out.println("Qual o nome do usuário");
-        String nomeUsuario = prompt.nextLine();
-        System.out.println("Qual o email do usuário?");
-        String emailUsuario;
-        do {
-            emailUsuario = prompt.nextLine();
-            if (!emailUsuario.contains("@")) {
-                System.out.println("Digite um email válido");
-            }
-        } while (!emailUsuario.contains("@"));
-        Usuario usuarioCadastrado = new Usuario(nomeUsuario, emailUsuario);
-        boolean cadastrou = p1.cadastrarUsuario(usuarioCadastrado);
+        boolean cadastrou = false;
+        while (!cadastrou) {
+            try {
+                System.out.println("Qual o nome do usuário");
+                String nomeUsuario = prompt.nextLine();
+                System.out.println("Qual o email do usuário?");
+                String emailUsuario;
+                emailUsuario = prompt.nextLine();
+                Usuario usuarioCadastrado = new Usuario(nomeUsuario, emailUsuario);
+                cadastrou = p1.cadastrarUsuario(usuarioCadastrado);
 
-        if (cadastrou == true) {
-            System.out.println("Usuário cadastrado com sucesso");
-        }
-        else{
-            System.out.println("Cadastro inválido");
-        }
+                if (cadastrou == true) {
+                    System.out.println("Usuário cadastrado com sucesso");
+                }
+                else{
+                    System.out.println("Cadastro inválido");
+                }            
+            }
+            catch (IllegalArgumentException error) {
+                System.out.println("Erro: " + error.getMessage());
+            }
+        }        
     }
 
     public void criarPlaylist(){
         prompt.nextLine();
-        System.out.println("Qual o nome da playlist?");
-        String nomePlaylist = prompt.nextLine();
-        System.out.println("Qual usuário será dono da playlist?");
-        Usuario usuarioValido;
+        Usuario usuarioValido = null;
         String usuarioPlaylist;
         do {
-            usuarioPlaylist = prompt.nextLine();
-            usuarioValido = p1.buscarUsuario(usuarioPlaylist);
+            try {
+                System.out.println("Qual o nome da playlist?");
+                String nomePlaylist = prompt.nextLine();
+                System.out.println("Qual usuário será dono da playlist?");
+                usuarioPlaylist = prompt.nextLine();
+                
+                usuarioValido = p1.buscarUsuario(usuarioPlaylist);
 
-            if (usuarioValido == null) {
-                System.out.println("Usuário inválido");
-        }    
+                ultimPlaylist = new Playlist(nomePlaylist, usuarioValido);
+                System.out.println("Cadastro concluido, deseja incluir novas músicas?");                
+            } catch (IllegalArgumentException error) {
+                System.out.println("Error :" + error.getMessage());
+            }                        
         } while (usuarioValido == null);
-        ultimPlaylist = new Playlist(nomePlaylist, usuarioValido);
-        System.out.println("Cadastro concluido, deseja incluir novas músicas?");
         int opcao = 0;
         do {
             System.out.println("1 - Sim");
             System.out.println("2 - Não");
-            if (prompt.hasNextInt()) {
-                opcao = prompt.nextInt();
-                prompt.nextLine();
-                switch (opcao) {
-                    case 1:
-                        Musica valida;
-                        System.out.println("Que música você gostaria de adicionar? Busca por titulo");
-                        do {
-                            String adicionarMusica = prompt.nextLine();
-                            valida = p1.buscarMusica(adicionarMusica);
-                            if (valida != null) {
-                                boolean adicionou = ultimPlaylist.adicionar(valida);
-                                if (adicionou) {
-                                    System.out.println("Música adicionada à playlist");
-                                    System.out.println("Adicionar uma nova música?");
-                                }
-                                else{
-                                    System.out.println("Não foi possível adicionar (playlist cheia)");
-                                }
+            opcao = prompt.nextInt();
+            prompt.nextLine();
+            switch (opcao) {
+                case 1:
+                    Musica valida;
+                    System.out.println("Que música você gostaria de adicionar? Busca por titulo");
+                    do {
+                        String adicionarMusica = prompt.nextLine();
+                        valida = p1.buscarMusica(adicionarMusica);
+                        if (valida != null) {
+                            boolean adicionou = ultimPlaylist.adicionar(valida);
+                            if (adicionou) {
+                                System.out.println("Música adicionada à playlist");
+                                System.out.println("Adicionar uma nova música?");
                             }
                             else{
-                                System.out.println("Música inválida");
+                                System.out.println("Não foi possível adicionar (playlist cheia)");
                             }
-                        } while (valida == null);
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        System.out.println("Digite 1 ou 2");
-                        break;
-                }
-            }
-            else{
-                prompt.nextLine();
-                System.out.println("Digite um número!");
+                        }
+                        else{
+                            System.out.println("Música inválida");
+                        }
+                    } while (valida == null);
+                    break;
+                case 2:
+                    break;
+                default:
+                    System.out.println("Digite 1 ou 2");
+                    break;
             }
         } while (opcao != 2);
     }
 
     public void buscarMusicaPorId(){
+        prompt.nextLine();
         System.out.println("Qual o id da música que você deseja buscar?");
-        int idMusica;
         Musica valido;
-        do {
-            if (prompt.hasNextInt()) {
-                idMusica =  prompt.nextInt();        
-                valido = p1.buscarMusicaPorId(idMusica);
-                if (valido == null) {
-                    System.out.println("Id inválido");
-                }
-                else{
-                    System.out.println("Música - " + valido.getTitulo());
-                    System.out.println("Artista - " + valido.getArtista());
-                    System.out.println("Reproduções - " + valido.getReproducoes());
-                    System.out.println("Duração - " + valido.getDuracaoFormatada());
-                    System.out.println("Duração segundos - " + valido.getDuracaoSegundos());
-                    System.out.println("Id música - " + valido.getId());
-                }
-            }
-            else{
-                throw new IllegalArgumentException("Digite somente números");
-            }
-        } while (valido == null);
+        try {
+            do {
+                    int idMusica =  Integer.parseInt(prompt.nextLine());        
+                    valido = p1.buscarMusicaPorId(idMusica);
+                    if (valido == null) {
+                        System.out.println("Id inválido");
+                    }
+                    else{
+                        System.out.println("Música           - " + valido.getTitulo());
+                        System.out.println("Artista          - " + valido.getArtista());
+                        System.out.println("Reproduções      - " + valido.getReproducoes());
+                        System.out.println("Duração          - " + valido.getDuracaoFormatada());
+                        System.out.println("Duração segundos - " + valido.getDuracaoSegundos());
+                        System.out.println("Id música        - " + valido.getId());
+                    }
+            } while (valido == null);            
+        } catch (IllegalArgumentException error) {
+            System.out.println("Error: " + error.getMessage());
+        }
     }
 
     public void buscarMusicaPorTitulo(){
