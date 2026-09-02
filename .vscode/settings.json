@@ -1,9 +1,10 @@
 {
     "java.project.sourcePaths": [
-        "src"
+        "src",
+        "test"
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "/home/next2b/Downloads/POO-java/lib/junit-platform-console-standalone-6.0.0.jar"
     ]
 }

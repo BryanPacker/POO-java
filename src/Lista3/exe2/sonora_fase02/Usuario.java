@@ -7,15 +7,15 @@ public class Usuario {
     private String email;
 
     public Usuario(String nome, String email){
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caractere válido");
+        }
+        if (email == null || email.isBlank() || !email.contains("@")) {
+            throw new IllegalArgumentException("Email precisa conter ao menos 1 caractere válido e um @");
+        }
+
         ultimoID++;
-
-        if (nome.isBlank() || nome == null) {
-            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caracterie válido");
-        }
-        if (email.isBlank() || email == null || !email.contains("@")) {
-            throw new IllegalArgumentException("Email precisa conter ao menos 1 caracterie válido e um @");
-        }
-
+        
         this.nome = nome;
         this.email = email;
         this.id = ultimoID;
@@ -34,16 +34,16 @@ public class Usuario {
     }
 
     public void setNome(String nome){
-        if (nome.isBlank() || nome == null) {
-            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caracterie válido");
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome precisa conter ao menos 1 caractere válido");
         }
         
         this.nome = nome;
     }
 
     public void setEmail(String email){
-        if (email.isBlank() || email == null) {
-            throw new IllegalArgumentException("Email precisa conter ao menos 1 caracterie válido");
+        if (email == null || email.isBlank() || !email.contains("@")) {
+            throw new IllegalArgumentException("Email precisa conter ao menos 1 caractere válido e um @");
         }
 
         this.email = email;

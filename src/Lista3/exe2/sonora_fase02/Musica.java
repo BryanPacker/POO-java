@@ -9,18 +9,18 @@ public class Musica {
     private String titulo;
     
     // Construtor
-    public Musica(String titulo, String artista, int duracaoSegundos){
-        ultimoID++;
-        
+    public Musica(String titulo, String artista, int duracaoSegundos){        
         if (duracaoSegundos < 1) {
-            throw new IllegalArgumentException("Duração precisa ser maior que 0!");
+            throw new IllegalArgumentException("Duração inválida: " + duracaoSegundos + ". Precisa ser maior que 0!");
         }
-        if (titulo.isBlank() || titulo == null ) {
-            throw new IllegalArgumentException("Titulo deve conter ao menos um caracterie válido");
+        if (titulo == null || titulo.isBlank() ) {
+            throw new IllegalArgumentException("Título deve conter ao menos um caractere válido");
         }
-        if (artista.isBlank() || artista == null ) {
-            throw new IllegalArgumentException("Nome do artista deve conter ao menos um caracterie válido");
+        if (artista == null || artista.isBlank() ) {
+            throw new IllegalArgumentException("Nome do artista deve conter ao menos um caractere válido");
         }
+
+        ultimoID++;
 
         this.titulo = titulo;
         this.artista = artista;
@@ -42,7 +42,7 @@ public class Musica {
     // Duração em segundos
     public void setDuracaoSegundos(int duracaoSegundos) {
         if (duracaoSegundos < 1) {
-            throw new IllegalArgumentException("Duração precisa ser maior que 0!");
+            throw new IllegalArgumentException("Duração inválida: " + duracaoSegundos + ". Precisa ser maior que 0!");
         }
         
         this.duracaoSegundos = duracaoSegundos;
@@ -54,8 +54,8 @@ public class Musica {
 
     // Infs Artista
     public void setArtista(String artista) {
-        if (artista.isBlank() || artista == null ) {
-            throw new IllegalArgumentException("Nome do artista deve conter ao menos um caracterie válido");
+        if (artista == null || artista.isBlank() ) {
+            throw new IllegalArgumentException("Nome do artista deve conter ao menos um caractere válido");
         }
 
         this.artista = artista;
@@ -67,8 +67,8 @@ public class Musica {
 
     // Infs Titulo
     public void setTitulo(String titulo) {
-        if (titulo.isBlank() || titulo == null ) {
-            throw new IllegalArgumentException("Titulo deve conter ao menos um caracterie válido");
+        if (titulo == null || titulo.isBlank() ) {
+            throw new IllegalArgumentException("Título deve conter ao menos um caractere válido");
         }
 
         this.titulo = titulo;

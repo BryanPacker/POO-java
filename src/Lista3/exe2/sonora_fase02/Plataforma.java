@@ -68,8 +68,6 @@ public class Plataforma {
         return null;
     }
 
-    
-
     public int getTotalMusicas(){
         return quantidadeMusica;
     }

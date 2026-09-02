@@ -9,7 +9,7 @@ public class Playlist {
     public Playlist(String nome, Usuario dono){
         
         if ( (nome == null || nome.isBlank()) || dono == null) {
-            throw new IllegalArgumentException("Dados inválidos, assegure-se de não passar dados nulos");
+            throw new IllegalArgumentException("Playlist precisa de um nome válido e de um dono não nulo");
         }
         this.nome = nome;
         this.dono = dono;
@@ -40,8 +40,8 @@ public class Playlist {
         }
     
     public Musica getNaPosicao(int indice){
-        if (indice < 0 || indice > quantidade) {
-            throw new IndexOutOfBoundsException("Escolha um número de intervalo válido, maior que 0 e dentro da quantidade de músicas adicionadas");
+        if (indice < 0 || indice >= quantidade) {
+            throw new IndexOutOfBoundsException("Posição inválida: " + indice + ". Use um número de 0 até " + (quantidade - 1));
         }   
         
         return musicas[indice];  
@@ -49,7 +49,7 @@ public class Playlist {
 
     public boolean removerNaPosicao(int indice) {
         if (indice < 0 || indice >= quantidade) {
-            throw new IndexOutOfBoundsException("Escolha um número de intervalo válido, maior que 0 e dentro da quantidade de músicas adicionadas");
+            throw new IndexOutOfBoundsException("Posição inválida: " + indice + ". Use um número de 0 até " + (quantidade - 1));
         }
         for (int i = indice; i < quantidade - 1; i++) {
             musicas[i] = musicas[i + 1];
