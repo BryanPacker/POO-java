@@ -86,7 +86,7 @@ public class Musica {
     
         String duracaoFormatada;
         
-        if (duracaoSegundos > 60) {
+        if (duracaoSegundos >= 60) {
             
             int duracaoMinutos = duracaoSegundos / 60; 
             int segundos = duracaoSegundos % 60;
@@ -95,11 +95,11 @@ public class Musica {
                 duracaoFormatada = "0"+duracaoMinutos+":"+"0"+segundos;
                 return duracaoFormatada;
             }
-            else if (duracaoMinutos < 10 && segundos > 10) {
+            else if (duracaoMinutos < 10 && segundos >= 10) {
                 duracaoFormatada = "0"+duracaoMinutos+":"+segundos;                
                 return duracaoFormatada;
             }
-            else if (duracaoMinutos > 10 && segundos < 10) {
+            else if (duracaoMinutos >= 10 && segundos < 10) {
                 duracaoFormatada = duracaoMinutos+":"+"0"+segundos;                
                 return duracaoFormatada;
             }
@@ -110,6 +110,10 @@ public class Musica {
 
         }
 
+        else if (duracaoSegundos < 10) {
+            duracaoFormatada = "00:0"+duracaoSegundos;
+            return duracaoFormatada;
+        }
         else {
             duracaoFormatada = "00:"+duracaoSegundos;
             return duracaoFormatada;
