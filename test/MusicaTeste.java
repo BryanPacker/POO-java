@@ -12,7 +12,7 @@ import Lista3.exe3.sonora_fase03.Usuario;
 
 public class MusicaTeste {
     Musica musica;
-
+    
     @BeforeEach
     public void preparar(){
         musica = new Musica("titulo", "Artista", 120);
