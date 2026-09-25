@@ -66,11 +66,13 @@ public class App {
             try { 
                 System.out.println("Qual o nome do artista");
                 String nomeArtista = prompt.nextLine();
+                System.out.println("Qual o nome do álbum?");
+                String nomeAlbum = prompt.nextLine();
                 System.out.println("Qual o nome da Música?");
                 String nomeMusica = prompt.nextLine();
                 System.out.println("Qual a duração total da Música(segundos)?");
                 int duracaoSegundos = Integer.parseInt(prompt.nextLine());                
-                Musica musicaCadastrada = new Musica(nomeMusica, nomeArtista, duracaoSegundos);
+                Musica musicaCadastrada = new Musica(nomeMusica, duracaoSegundos, nomeArtista, nomeAlbum);
                 cadastrou = p1.cadastrarMusica(musicaCadastrada);
                 } catch (NumberFormatException error) {
                     System.out.println("A duração precisa ser um número");
@@ -190,6 +192,7 @@ public class App {
                         else{
                             System.out.println("Música           - " + valido.getTitulo());
                             System.out.println("Artista          - " + valido.getArtista());
+                            System.out.println("Álbum            - " + valido.getAlbum());
                             System.out.println("Reproduções      - " + valido.getReproducoes());
                             System.out.println("Duração          - " + valido.getDuracaoFormatada());
                             System.out.println("Duração segundos - " + valido.getDuracaoSegundos());
@@ -216,6 +219,7 @@ public class App {
             else{
                 System.out.println("Música - " + valido.getTitulo());
                 System.out.println("Artista - " + valido.getArtista());
+                System.out.println("Álbum - " + valido.getAlbum());
                 System.out.println("Reproduções - " + valido.getReproducoes());
                 System.out.println("Duração - " + valido.getDuracaoFormatada());
                 System.out.println("Duração segundos - " + valido.getDuracaoSegundos());
@@ -236,7 +240,6 @@ public class App {
             }
             else{
                 valido.reproduzir();
-                System.out.println("Reproduzindo!");
             }            
         } while (valido == null);
     }
@@ -247,13 +250,36 @@ public class App {
         } 
         else {
             for (int i = 0; i < p1.getTotalMusicas(); i++) {
-                Musica musicas = p1.buscarMusicaPorId(i + 1);
-                System.out.println((i+1) + " - " + musicas.getTitulo());
+                Musica musicas = p1.getMusicaNaPosicao(i);
+                System.out.println(musicas);
             }
         }
     }
+
+    public void demonstrarConteudos(){
+        System.out.println("------ Demonstração de conteúdos ------");
+        try {
+            Musica musica1 = new Musica("Bohemian Rhapsody", 354, "Queen", "A Night at the Opera");
+            Musica musica2 = new Musica("Garota de Ipanema", 163, "Tom Jobim", "Getz/Gilberto");
+            Podcast podcast1 = new Podcast("Nerdcast", 3600, "Jovem Nerd", 1);
+
+            musica1.reproduzir();
+            musica2.reproduzir();
+            podcast1.reproduzir();
+
+            System.out.println(musica1);
+            System.out.println(musica2);
+            System.out.println(podcast1);
+        } catch (IllegalArgumentException error) {
+            System.out.println("Erro: " + error.getMessage());
+        } finally {
+            System.out.println("---------------------------------------");
+        }
+    }
+
     public static void main(String[] args) {
         App exe = new App();
+        exe.demonstrarConteudos();
         exe.Menu();  
     }
 }

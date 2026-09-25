@@ -3,33 +3,18 @@ package Lista3.exe5.sonora_fase05;
 public class Musica extends Conteudo{
     private int reproducoes;
     private String artista;
-    
+    private String album;
+
     // Construtor
-    public Musica(String titulo, int duracaoSegundos){        
+    public Musica(String titulo, int duracaoSegundos, String artista, String album){
         super(titulo, duracaoSegundos);
+        setArtista(artista);
+        setAlbum(album);
     }
 
-    // Retorna ID
-    public int getId() {
-        return id;
-    }
-
-    // Duração em segundos
+    // Reproduções
     public int getReproducoes() {
         return reproducoes;
-    }
-
-    // Duração em segundos
-    public void setDuracaoSegundos(int duracaoSegundos) {
-        if (duracaoSegundos < 1) {
-            throw new IllegalArgumentException("Duração inválida: " + duracaoSegundos + ". Precisa ser maior que 0!");
-        }
-        
-        this.duracaoSegundos = duracaoSegundos;
-    }
-
-    public int getDuracaoSegundos() {
-        return duracaoSegundos;
     }
 
     // Infs Artista
@@ -45,46 +30,49 @@ public class Musica extends Conteudo{
         return artista;
     }
 
-    // Infs Titulo
-    public void setTitulo(String titulo) {
-        if (titulo == null || titulo.isBlank() ) {
-            throw new IllegalArgumentException("Título deve conter ao menos um caractere válido");
+    // Infs Album
+    public void setAlbum(String album) {
+        if (album == null || album.isBlank() ) {
+            throw new IllegalArgumentException("Nome do álbum deve conter ao menos um caractere válido");
         }
 
-        this.titulo = titulo;
+        this.album = album;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }    
-    
+    public String getAlbum() {
+        return album;
+    }
+
+    @Override
     public void reproduzir(){
+        super.reproduzir();
         reproducoes++;
     }
 
     public String getDuracaoFormatada(){
-    
+
         String duracaoFormatada;
-        
+        int duracaoSegundos = getDuracaoSegundos();
+
         if (duracaoSegundos >= 60) {
-            
-            int duracaoMinutos = duracaoSegundos / 60; 
+
+            int duracaoMinutos = duracaoSegundos / 60;
             int segundos = duracaoSegundos % 60;
-        
+
             if (duracaoMinutos < 10 && segundos < 10 ) {
                 duracaoFormatada = "0"+duracaoMinutos+":"+"0"+segundos;
                 return duracaoFormatada;
             }
             else if (duracaoMinutos < 10 && segundos >= 10) {
-                duracaoFormatada = "0"+duracaoMinutos+":"+segundos;                
+                duracaoFormatada = "0"+duracaoMinutos+":"+segundos;
                 return duracaoFormatada;
             }
             else if (duracaoMinutos >= 10 && segundos < 10) {
-                duracaoFormatada = duracaoMinutos+":"+"0"+segundos;                
+                duracaoFormatada = duracaoMinutos+":"+"0"+segundos;
                 return duracaoFormatada;
             }
             else{
-                duracaoFormatada = duracaoMinutos+":"+segundos;                
+                duracaoFormatada = duracaoMinutos+":"+segundos;
                 return duracaoFormatada;
             }
 
@@ -98,5 +86,10 @@ public class Musica extends Conteudo{
             duracaoFormatada = "00:"+duracaoSegundos;
             return duracaoFormatada;
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " - " + artista + " (" + album + ")";
     }
 }

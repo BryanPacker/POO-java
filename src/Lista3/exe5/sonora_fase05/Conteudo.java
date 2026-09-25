@@ -2,28 +2,23 @@ package Lista3.exe5.sonora_fase05;
 
 public class Conteudo {
     private static int ultimoID;
-    protected final int id;
-    protected String titulo;
-    protected int duracaoSegundos;
+    private int id;
+    private String titulo;
+    private int duracaoSegundos;
 
     public Conteudo(String titulo, int duracaoSegundos){
-        
-        if (titulo.isBlank() || titulo == null) {
-            throw new IllegalArgumentException("Titulo inválido");
-        }
-        if (duracaoSegundos < 1) {
-            throw new IllegalArgumentException("Duração inválida");
-        }
-
         ultimoID++;
         this.id = ultimoID;
-        this.titulo = titulo;
-        this.duracaoSegundos = duracaoSegundos;
-        
+        setTitulo(titulo);
+        setDuracaoSegundos(duracaoSegundos);
     }
-    
+
     public int getId() {
         return id;
+    }
+
+    protected void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -31,8 +26,8 @@ public class Conteudo {
     }
 
     public void setTitulo(String titulo) {
-        if (titulo.isBlank() || titulo == null) {
-            throw new IllegalArgumentException("Titulo inválido");
+        if (titulo == null || titulo.isBlank()) {
+            throw new IllegalArgumentException("Título deve conter ao menos um caractere válido");
         }
 
         this.titulo = titulo;
@@ -44,18 +39,18 @@ public class Conteudo {
 
     public void setDuracaoSegundos(int duracaoSegundos) {
         if (duracaoSegundos < 1) {
-            throw new IllegalArgumentException("Duração inválida");
+            throw new IllegalArgumentException("Duração inválida: " + duracaoSegundos + ". Precisa ser maior que 0!");
         }
         this.duracaoSegundos = duracaoSegundos;
     }
 
-    public void reproduzir(String titulo){
-        System.out.println("Reproduzindo : " + titulo);
+    public void reproduzir(){
+        System.out.println("Reproduzindo: " + toString());
     }
 
     @Override
     public String toString() {
-    return "[" + getId() + "] " + titulo + " (" + duracaoSegundos + "s)";
+        return "[" + getId() + "] " + titulo + " (" + duracaoSegundos + "s)";
     }
-    
+
 }

@@ -68,6 +68,14 @@ public class Plataforma {
         return null;
     }
 
+    public Musica getMusicaNaPosicao(int indice){
+        if (indice < 0 || indice >= quantidadeMusica) {
+            throw new IndexOutOfBoundsException("Posição inválida: " + indice + ". Use um número de 0 até " + (quantidadeMusica - 1));
+        }
+
+        return musicas[indice];
+    }
+
     public int getTotalMusicas(){
         return quantidadeMusica;
     }
