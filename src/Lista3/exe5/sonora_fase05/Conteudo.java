@@ -1,12 +1,13 @@
 package Lista3.exe5.sonora_fase05;
 
-public class Conteudo {
+public abstract class Conteudo {
     private static int ultimoID;
     private int id;
     private String titulo;
     private int duracaoSegundos;
+    private int reproducoes;
 
-    public Conteudo(String titulo, int duracaoSegundos){
+    public Conteudo(String titulo, int duracaoSegundos) {
         ultimoID++;
         this.id = ultimoID;
         setTitulo(titulo);
@@ -44,13 +45,20 @@ public class Conteudo {
         this.duracaoSegundos = duracaoSegundos;
     }
 
-    public void reproduzir(){
-        System.out.println("Reproduzindo: " + toString());
+    public int getReproducoes() {
+        return reproducoes;
+    }
+
+    public abstract String getCreditos();
+
+    public final void reproduzir() {
+        reproducoes++;
+        System.out.println("Reproduzindo: " + getTitulo() + " - " + getCreditos());
     }
 
     @Override
     public String toString() {
         return "[" + getId() + "] " + titulo + " (" + duracaoSegundos + "s)";
     }
-
 }
+

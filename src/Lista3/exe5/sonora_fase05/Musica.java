@@ -1,25 +1,17 @@
 package Lista3.exe5.sonora_fase05;
 
-public class Musica extends Conteudo{
-    private int reproducoes;
+public class Musica extends Conteudo {
     private String artista;
     private String album;
 
-    // Construtor
-    public Musica(String titulo, int duracaoSegundos, String artista, String album){
+    public Musica(String titulo, int duracaoSegundos, String artista, String album) {
         super(titulo, duracaoSegundos);
         setArtista(artista);
         setAlbum(album);
     }
 
-    // Reproduções
-    public int getReproducoes() {
-        return reproducoes;
-    }
-
-    // Infs Artista
     public void setArtista(String artista) {
-        if (artista == null || artista.isBlank() ) {
+        if (artista == null || artista.isBlank()) {
             throw new IllegalArgumentException("Nome do artista deve conter ao menos um caractere válido");
         }
 
@@ -30,9 +22,8 @@ public class Musica extends Conteudo{
         return artista;
     }
 
-    // Infs Album
     public void setAlbum(String album) {
-        if (album == null || album.isBlank() ) {
+        if (album == null || album.isBlank()) {
             throw new IllegalArgumentException("Nome do álbum deve conter ao menos um caractere válido");
         }
 
@@ -44,52 +35,43 @@ public class Musica extends Conteudo{
     }
 
     @Override
-    public void reproduzir(){
-        super.reproduzir();
-        reproducoes++;
+    public String getCreditos() {
+        return artista + " (" + album + ")";
     }
 
-    public String getDuracaoFormatada(){
-
+    public String getDuracaoFormatada() {
         String duracaoFormatada;
         int duracaoSegundos = getDuracaoSegundos();
 
         if (duracaoSegundos >= 60) {
-
             int duracaoMinutos = duracaoSegundos / 60;
             int segundos = duracaoSegundos % 60;
 
-            if (duracaoMinutos < 10 && segundos < 10 ) {
-                duracaoFormatada = "0"+duracaoMinutos+":"+"0"+segundos;
+            if (duracaoMinutos < 10 && segundos < 10) {
+                duracaoFormatada = "0" + duracaoMinutos + ":" + "0" + segundos;
+                return duracaoFormatada;
+            } else if (duracaoMinutos < 10 && segundos >= 10) {
+                duracaoFormatada = "0" + duracaoMinutos + ":" + segundos;
+                return duracaoFormatada;
+            } else if (duracaoMinutos >= 10 && segundos < 10) {
+                duracaoFormatada = duracaoMinutos + ":" + "0" + segundos;
+                return duracaoFormatada;
+            } else {
+                duracaoFormatada = duracaoMinutos + ":" + segundos;
                 return duracaoFormatada;
             }
-            else if (duracaoMinutos < 10 && segundos >= 10) {
-                duracaoFormatada = "0"+duracaoMinutos+":"+segundos;
-                return duracaoFormatada;
-            }
-            else if (duracaoMinutos >= 10 && segundos < 10) {
-                duracaoFormatada = duracaoMinutos+":"+"0"+segundos;
-                return duracaoFormatada;
-            }
-            else{
-                duracaoFormatada = duracaoMinutos+":"+segundos;
-                return duracaoFormatada;
-            }
-
-        }
-
-        else if (duracaoSegundos < 10) {
-            duracaoFormatada = "00:0"+duracaoSegundos;
+        } else if (duracaoSegundos < 10) {
+            duracaoFormatada = "00:0" + duracaoSegundos;
             return duracaoFormatada;
-        }
-        else {
-            duracaoFormatada = "00:"+duracaoSegundos;
+        } else {
+            duracaoFormatada = "00:" + duracaoSegundos;
             return duracaoFormatada;
         }
     }
 
     @Override
     public String toString() {
-        return super.toString() + " - " + artista + " (" + album + ")";
+        return super.toString() + " - " + getCreditos();
     }
 }
+

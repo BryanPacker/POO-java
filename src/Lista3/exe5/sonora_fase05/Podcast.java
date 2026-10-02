@@ -4,7 +4,7 @@ public class Podcast extends Conteudo {
     private String apresentador;
     private int numeroEpisodio;
 
-    public Podcast(String titulo, int duracaoSegundos, String apresentador, int numeroEpisodio){
+    public Podcast(String titulo, int duracaoSegundos, String apresentador, int numeroEpisodio) {
         super(titulo, duracaoSegundos);
         setApresentador(apresentador);
         setNumeroEpisodio(numeroEpisodio);
@@ -33,7 +33,13 @@ public class Podcast extends Conteudo {
     }
 
     @Override
+    public String getCreditos() {
+        return "Ep. " + numeroEpisodio + " com " + apresentador;
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + " - Ep. " + numeroEpisodio + " com " + apresentador;
+        return super.toString() + " - " + getCreditos();
     }
 }
+
