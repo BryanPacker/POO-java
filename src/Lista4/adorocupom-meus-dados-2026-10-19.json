@@ -1,0 +1,518 @@
+{
+    "conta": {
+        "nome": "Bryan",
+        "email": "bryan@adorocupom.com",
+        "criada_em": "2026-04-09T16:02:57+00:00",
+        "email_verificado_em": "2026-04-09T16:02:57+00:00"
+    },
+    "marketing": {
+        "recebe_emails_de_marketing": false,
+        "descadastrado_em": null
+    },
+    "lojas_seguidas": [],
+    "cliques_em_cupons": [
+        {
+            "loja": "Shopee",
+            "cupom": "R$ 1.840 no bundle Nintendo Switch OLED com jogo",
+            "data": "2026-10-19T12:48:35+00:00"
+        },
+        {
+            "loja": "Carrefour",
+            "cupom": null,
+            "data": "2026-10-16T19:17:39+00:00"
+        },
+        {
+            "loja": "Carrefour",
+            "cupom": "26% off no pix em eletroportáteis WAP",
+            "data": "2026-10-16T19:17:32+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "cupom": "10% de desconto em tecnologia acima de R$ 149",
+            "data": "2026-10-06T19:11:49+00:00"
+        },
+        {
+            "loja": "Beleza na Web",
+            "cupom": "20% OFF em Produtos Beleza na Web",
+            "data": "2026-10-06T11:31:42+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "cupom": "10% off no Mercado Livre a partir de R$79",
+            "data": "2026-10-05T17:37:10+00:00"
+        },
+        {
+            "loja": "Amazon",
+            "cupom": "Cupons Amazon Up to 70% OFF",
+            "data": "2026-10-05T17:35:46+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "cupom": "10% de desconto em tecnologia acima de R$ 149",
+            "data": "2026-10-05T14:21:55+00:00"
+        },
+        {
+            "loja": "O Boticário",
+            "cupom": "Primeira compra COM 15% OFF",
+            "data": "2026-10-02T18:01:24+00:00"
+        },
+        {
+            "loja": "Magazine Luiza",
+            "cupom": "Até 25% off no Magazine Luiza em produtos selecionados",
+            "data": "2026-10-02T17:31:45+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "cupom": "Desconto Mercado Livre Principia 10% OFF até R$150",
+            "data": "2026-04-24T14:24:03+00:00"
+        },
+        {
+            "loja": "C&A",
+            "cupom": "Cupom de Primeira Compra",
+            "data": "2026-04-21T14:04:24+00:00"
+        },
+        {
+            "loja": "Riachuelo",
+            "cupom": "10% OFF em Retirada na Loja com Cupom na Riachuelo",
+            "data": "2026-04-21T11:39:40+00:00"
+        },
+        {
+            "loja": "Natura",
+            "cupom": "Brinde Chaveiro Gloss Natura Una",
+            "data": "2026-04-09T16:03:58+00:00"
+        }
+    ],
+    "compras": [],
+    "pontos": {
+        "saldo_disponivel": 102,
+        "missoes": [
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-10-19T12:48:35+00:00"
+            },
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-10-16T19:17:32+00:00"
+            },
+            {
+                "missao": "Check-in Diário",
+                "pontos": 5,
+                "concluida_em": "2026-10-16T19:01:20+00:00"
+            },
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-10-06T11:31:42+00:00"
+            },
+            {
+                "missao": "Girar a Roleta",
+                "pontos": 18,
+                "concluida_em": "2026-10-05T18:05:45+00:00"
+            },
+            {
+                "missao": "Check-in Diário",
+                "pontos": 5,
+                "concluida_em": "2026-10-05T18:05:41+00:00"
+            },
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-10-05T14:21:55+00:00"
+            },
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-10-02T18:01:24+00:00"
+            },
+            {
+                "missao": "Girar a Roleta",
+                "pontos": 3,
+                "concluida_em": "2026-06-23T11:34:08+00:00"
+            },
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-04-24T14:24:03+00:00"
+            },
+            {
+                "missao": "Girar a Roleta",
+                "pontos": 3,
+                "concluida_em": "2026-04-24T14:23:54+00:00"
+            },
+            {
+                "missao": "Check-in Diário",
+                "pontos": 5,
+                "concluida_em": "2026-04-24T14:23:50+00:00"
+            },
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-04-21T11:39:40+00:00"
+            },
+            {
+                "missao": "Girar a Roleta",
+                "pontos": 8,
+                "concluida_em": "2026-04-21T11:39:31+00:00"
+            },
+            {
+                "missao": "Check-in Diário",
+                "pontos": 5,
+                "concluida_em": "2026-04-21T11:39:27+00:00"
+            },
+            {
+                "missao": "Explorador de Cupons",
+                "pontos": 5,
+                "concluida_em": "2026-04-09T16:03:58+00:00"
+            },
+            {
+                "missao": "Girar a Roleta",
+                "pontos": 5,
+                "concluida_em": "2026-04-09T16:03:12+00:00"
+            },
+            {
+                "missao": "Check-in Diário",
+                "pontos": 5,
+                "concluida_em": "2026-04-09T16:03:04+00:00"
+            }
+        ],
+        "resgates": []
+    },
+    "indicacoes": [],
+    "comentarios": [],
+    "avaliacoes": [],
+    "visitas_a_lojas": [
+        {
+            "loja": "Shopee",
+            "data": "2026-10-19T12:39:43+00:00"
+        },
+        {
+            "loja": "Amazon",
+            "data": "2026-10-19T12:39:27+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-19T12:39:13+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-16T19:43:55+00:00"
+        },
+        {
+            "loja": "Carrefour",
+            "data": "2026-10-16T19:02:06+00:00"
+        },
+        {
+            "loja": "Beleza na Web",
+            "data": "2026-10-07T17:02:59+00:00"
+        },
+        {
+            "loja": "Shein",
+            "data": "2026-10-07T17:02:53+00:00"
+        },
+        {
+            "loja": "O Boticário",
+            "data": "2026-10-07T17:02:51+00:00"
+        },
+        {
+            "loja": "Shopee",
+            "data": "2026-10-07T17:02:48+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-07T14:16:31+00:00"
+        },
+        {
+            "loja": "O Boticário",
+            "data": "2026-10-07T13:27:22+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-06T19:11:48+00:00"
+        },
+        {
+            "loja": "Shopee",
+            "data": "2026-10-06T13:05:33+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-06T13:01:17+00:00"
+        },
+        {
+            "loja": "Shein",
+            "data": "2026-10-06T12:27:54+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-06T12:27:51+00:00"
+        },
+        {
+            "loja": "Beleza na Web",
+            "data": "2026-10-06T11:31:40+00:00"
+        },
+        {
+            "loja": "Nike",
+            "data": "2026-10-06T11:31:09+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-06T11:23:44+00:00"
+        },
+        {
+            "loja": "Nike",
+            "data": "2026-10-06T10:59:14+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-05T17:37:09+00:00"
+        },
+        {
+            "loja": "Amazon",
+            "data": "2026-10-05T17:35:45+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-05T14:21:54+00:00"
+        },
+        {
+            "loja": "Beleza na Web",
+            "data": "2026-10-05T12:45:14+00:00"
+        },
+        {
+            "loja": "Mobly",
+            "data": "2026-10-05T12:45:02+00:00"
+        },
+        {
+            "loja": "Amazon",
+            "data": "2026-10-05T12:44:59+00:00"
+        },
+        {
+            "loja": "Shopee",
+            "data": "2026-10-05T12:32:36+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-10-03T23:24:45+00:00"
+        },
+        {
+            "loja": "Beleza na Web",
+            "data": "2026-10-03T23:18:38+00:00"
+        },
+        {
+            "loja": "Amazon",
+            "data": "2026-10-02T18:02:06+00:00"
+        },
+        {
+            "loja": "O Boticário",
+            "data": "2026-10-02T18:01:22+00:00"
+        },
+        {
+            "loja": "Pague Menos",
+            "data": "2026-10-02T17:42:21+00:00"
+        },
+        {
+            "loja": "Shopee",
+            "data": "2026-10-02T17:42:16+00:00"
+        },
+        {
+            "loja": "Magazine Luiza",
+            "data": "2026-10-02T17:31:42+00:00"
+        },
+        {
+            "loja": "O Boticário",
+            "data": "2026-10-02T11:21:17+00:00"
+        },
+        {
+            "loja": "Shopee",
+            "data": "2026-10-02T11:21:15+00:00"
+        },
+        {
+            "loja": "Kabum",
+            "data": "2026-10-02T11:21:10+00:00"
+        },
+        {
+            "loja": "Amazon",
+            "data": "2026-10-02T11:05:37+00:00"
+        },
+        {
+            "loja": "Magazine Luiza",
+            "data": "2026-09-10T14:08:37+00:00"
+        },
+        {
+            "loja": "AliExpress",
+            "data": "2026-08-08T00:04:22+00:00"
+        },
+        {
+            "loja": "Adidas",
+            "data": "2026-07-24T10:00:14+00:00"
+        },
+        {
+            "loja": "Shopee",
+            "data": "2026-06-23T14:44:36+00:00"
+        },
+        {
+            "loja": "Fut Fanatics",
+            "data": "2026-04-24T14:26:03+00:00"
+        },
+        {
+            "loja": "Mercado Livre",
+            "data": "2026-04-22T00:29:28+00:00"
+        },
+        {
+            "loja": "Nuuvem",
+            "data": "2026-04-21T18:48:51+00:00"
+        },
+        {
+            "loja": "Insider",
+            "data": "2026-04-21T18:43:56+00:00"
+        },
+        {
+            "loja": "C&A",
+            "data": "2026-04-21T14:04:01+00:00"
+        }
+    ],
+    "emails_recebidos": [
+        {
+            "modelo": null,
+            "campanha": null,
+            "enviado_em": "2026-10-16T19:36:59+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "rastreio",
+            "campanha": "tracking_updates_teste_manual",
+            "enviado_em": "2026-09-08T17:31:13+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "rastreio",
+            "campanha": "tracking_updates_teste_manual",
+            "enviado_em": "2026-09-08T17:27:08+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "rastreio",
+            "campanha": "tracking_updates_teste_manual",
+            "enviado_em": "2026-09-08T17:07:59+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "book-friday-03",
+            "campanha": "campaign_01krdz69jnsy6xfmqpy08kytnn",
+            "enviado_em": "2026-05-15T10:49:35+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "book-friday-02",
+            "campanha": "campaign_01krdz69jnsy6xfmqpy08kytnn",
+            "enviado_em": "2026-05-14T10:49:03+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "book-friday-01",
+            "campanha": "campaign_01krdz69jnsy6xfmqpy08kytnn",
+            "enviado_em": "2026-05-13T10:45:52+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "news-semanal-01",
+            "campanha": "campaign_01krc9jar1g5qmm13dvbx6rt9a",
+            "enviado_em": "2026-05-12T12:41:36+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "dia-das-maes-202605",
+            "campanha": "Dia das mães 01",
+            "enviado_em": "2026-05-10T11:48:42+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "dia-das-maes-202604",
+            "campanha": "Dia das mães 01",
+            "enviado_em": "2026-05-07T13:01:02+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "dia-das-maes-202603",
+            "campanha": "Dia das mães",
+            "enviado_em": "2026-05-05T13:30:57+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "dia-das-maes-202602",
+            "campanha": "Dia das mães",
+            "enviado_em": "2026-04-30T14:50:18+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "dia-das-maes-202601",
+            "campanha": "Dia das mães",
+            "enviado_em": "2026-04-28T07:31:08+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "adorocupom-emails-diarios-d3-d3",
+            "campanha": "missions_daily",
+            "enviado_em": "2026-04-12T04:01:49+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "adorocupom-emails-diarios-d2-d3",
+            "campanha": "missions_daily",
+            "enviado_em": "2026-04-11T04:01:13+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "adorocupom-emails-diarios-d1-d3",
+            "campanha": "missions_daily",
+            "enviado_em": "2026-04-09T18:01:19+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "adorocupom-cadastro-d0-ativacao",
+            "campanha": "registration_welcome",
+            "enviado_em": "2026-04-09T16:02:58+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "rastreio",
+            "campanha": "tracking_updates_resend",
+            "enviado_em": null,
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": "rastreio",
+            "campanha": "tracking_updates_resend",
+            "enviado_em": null,
+            "aberto_em": null,
+            "clicado_em": null
+        },
+        {
+            "modelo": null,
+            "campanha": null,
+            "enviado_em": null,
+            "aberto_em": null,
+            "clicado_em": "2026-09-29T13:37:56+00:00"
+        }
+    ],
+    "notificacoes_push": []
+}
