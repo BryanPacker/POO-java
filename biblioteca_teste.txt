@@ -1,0 +1,6 @@
+ID,TITULO,AUTOR,ISBN,PRECO,ANO,DISPONIVEL
+1,1984,George Orwell,ISBN001,45.9,1949,false
+2,Dom Casmurro,Machado de Assis,ISBN002,32.5,1899,true
+3,O Cortiço,Aluísio Azevedo,ISBN003,28.0,1890,true
+4,Grande Sertão: Veredas,Guimarães Rosa,ISBN004,55.0,1956,true
+5,Memórias Póstumas de Brás Cubas,Machado de Assis,ISBN005,50.0,1881,true

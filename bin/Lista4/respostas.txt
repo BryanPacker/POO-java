@@ -1,0 +1,16 @@
+1. Por que proximoNumero é static e numero não é?
+
+O proximoNumero é static por que ele é da classe e não de cada pedido, ele é compartilhado por todos então é ele que sabe qual o proximo numero da sequencia. O numero ja é de cada pedido cada um tem o seu. Se o proximoNumero nao fosse static cada pedido ia ter o seu proprio começando no 1 e todos iam ficar com numero 1
+
+2. Por que calcularPrecoComDesconto é final e calcularPreco é abstract? Um mesmo método poderia ser as duas coisas?
+
+calcularPreco é abstract porque cada item calcula o preço de um jeito diferente, o prato pelo tamanho a bebida se é alcoolica e a sobremesa pelo peso, entao cada subclasse tem que fazer o seu. O calcularPrecoComDesconto é final porque a regra do desconto é a mesma pra todo mundo e nenhuma subclasse pode mudar ela.
+Não da pra ser os dois, abstract obriga a subclasse a sobrescrever e o final nao deixa sobrescrever entao o compilador da erro
+
+3. Se a navegação entre Pedido e Cliente fosse bidirecional, o que mudaria na classe Cliente?
+
+O Cliente ia precisar ter uma lista com os pedidos dele, tipo um ArrayList<Pedido>, e uns metodos pra adicionar e pegar esses pedidos. E quando criasse um pedido tinha que colocar ele na lista do cliente tbm pra os dois lados ficarem certos
+
+4. Por que usarCashback precisa de throws e adicionarItem não precisa, mesmo os dois lançando exceções?
+
+Porque a SaldoInsuficienteException estende Exception entao ela é verificada (checked), ai o java obriga a colocar o throws ou tratar com try catch. Ja no adicionarItem as exceções são IllegalArgumentException e IllegalStateException que são RuntimeException, nao são verificadas entao nao precisa declarar

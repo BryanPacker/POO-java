@@ -1,0 +1,49 @@
+{
+    "conta": {
+        "nome": "QA Dependabot",
+        "email": "qa-dependabot-1792066693@adorocupom.com",
+        "criada_em": "2026-10-15T12:18:19+00:00",
+        "email_verificado_em": null
+    },
+    "marketing": {
+        "recebe_emails_de_marketing": true,
+        "descadastrado_em": null
+    },
+    "lojas_seguidas": [],
+    "cliques_em_cupons": [],
+    "compras": [],
+    "pontos": {
+        "saldo_disponivel": 5,
+        "missoes": [
+            {
+                "missao": "Check-in Diário",
+                "pontos": 5,
+                "concluida_em": "2026-10-15T12:20:02+00:00"
+            }
+        ],
+        "resgates": []
+    },
+    "indicacoes": [],
+    "comentarios": [],
+    "avaliacoes": [],
+    "visitas_a_lojas": [
+        {
+            "loja": "Natura",
+            "data": "2026-10-16T11:49:01+00:00"
+        },
+        {
+            "loja": "Leroy Merlin",
+            "data": "2026-10-16T11:48:35+00:00"
+        }
+    ],
+    "emails_recebidos": [
+        {
+            "modelo": "adorocupom-cadastro-d0-ativacao",
+            "campanha": "campaign_01ks5g9j9rp15bxy4b93p343pp",
+            "enviado_em": "2026-10-15T12:18:20+00:00",
+            "aberto_em": null,
+            "clicado_em": null
+        }
+    ],
+    "notificacoes_push": []
+}
